@@ -15,24 +15,31 @@ public class TCPServer
 
 	public static void main(String[] args) throws Exception
 	{
-		String clientSentence;
-		String capitalizedSentence;
+		String receivedSentence;
+		String mySentence;
 		
 		ServerSocket welcomeSocket = new ServerSocket(6789);
+
+		Socket connectionSocket = welcomeSocket.accept();
 		
+		BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
+
+		BufferedReader inFromClient = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
+
+		DataOutputStream outToClient = new DataOutputStream(connectionSocket.getOutputStream());
+
 		while(true){
+
+			receivedSentence = inFromClient.readLine();
 			
-			Socket connectionSocket = welcomeSocket.accept();
+			System.out.println("From Client: " + receivedSentence);
 			
-			BufferedReader inFromClient = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
+			System.out.print("Me: ");
 			
-			DataOutputStream outToClient = new DataOutputStream(connectionSocket.getOutputStream());
+			mySentence = inFromUser.readLine();
+
+			outToClient.writeBytes(mySentence + '\n');
 			
-			clientSentence = inFromClient.readLine();
-			
-			capitalizedSentence = clientSentence.toUpperCase() + '\n';
-			
-			outToClient.writeBytes(capitalizedSentence);
 		}
 	}
 
