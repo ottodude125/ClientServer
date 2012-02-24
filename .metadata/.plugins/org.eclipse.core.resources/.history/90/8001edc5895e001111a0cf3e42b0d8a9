@@ -1,0 +1,22 @@
+/**
+ * 
+ */
+
+/**
+ * @project TCP Server
+ * @file TCPServer.java
+ * @author Jonathan Katon
+ * @date Feb 23, 2012
+ * 
+ */
+public class TCPServer {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

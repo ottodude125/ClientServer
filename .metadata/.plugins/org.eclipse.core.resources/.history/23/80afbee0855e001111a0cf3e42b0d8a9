@@ -1,0 +1,17 @@
+/**
+ * 
+ * @project TCP
+ * @file TCPClient.java
+ * @author Jonathan Katon
+ * @date Feb 23, 2012
+ *
+ */
+
+public class TCPClient {
+
+	public static void main(String[] args) {
+
+		System.out.println(args[0]);
+	}
+
+}
